@@ -1,0 +1,7 @@
+flowchart TD
+ A([START]) --> B[/Wyjście: "Ile wynosi cena zakupu?"/]
+ B --> C[/Wejście: purchaseNet/]
+ C --> D[/Wyjście: "Ile wynosi marza?"/]
+ D --> E[/Wejście: marginPercent/]
+ E --> F[/Wyjście: "Cena brutto bedzie wynosic %f" , purchaseNet * <1 + marginPercent/100.0>/]
+ F --> Z([STOP])

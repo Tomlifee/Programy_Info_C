@@ -1,0 +1,8 @@
+flowchart TD
+ A([START]) --> B[/Wyjście: "Ile PLN chcesz przeliczyc"/]
+ B --> C[/Wejście: amountPLN/]
+ C --> D[/Wyjście: "Jaki jest dzisiejszy kurs?"/]
+ D --> E[/Wejście: rate/]
+ E --> F[/Wyjście: "Bedzie to %f USD" , amountPLN*rate/]
+ 
+ F --> Z([STOP])
