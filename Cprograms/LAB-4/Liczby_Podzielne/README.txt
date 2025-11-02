@@ -1,4 +1,4 @@
-Program do obliczania BMI. Użytkownik wpisuje wagę w kg, a następnie wzrost w m.
+Program do odnajdywania liczb podzielnych przez wybrany dzielnik w zakresie od 50 do 100 włącznie.
 
 Sposób kompilacji:
 1. Uruchom windows Powershell
@@ -9,6 +9,5 @@ dojdź do folderu, gdzie znajduje sie plik src.c
 5. Enjoy
 
 Sposób użytkowania:
-1. Wpisz wagę w kilogramach i wciśnij enter
-2. Wpisz wzrost w metrach (używając kropki, nie przecinka) i wciśnij enter
-3. Program wyświetli wartość BMI oraz wypisze krótką ocenę
+1. Wpisz liczbę, która będzie dzielnikiem (musi być liczbą naturlaną, ale nie 0)
+2. Program wypisze wszystkie liczby pomiędzy 49 a 101, które są podzielne przez wpisaną liczbę
