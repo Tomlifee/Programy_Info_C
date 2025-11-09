@@ -12,7 +12,7 @@ int main(){
 
     //Error check
     if(key < 0 || key > 25)
-    {
+    { 
         printf("\nBLAD - WARTOSC KLUCZA POZA DOZWOLONYM ZAKRESEM :<");
         return 1;
     }
@@ -50,7 +50,7 @@ int main(){
 
         message = getchar();
     }
-    
+
     //End of output
     printf("\nKlucz: %d", key);
 
