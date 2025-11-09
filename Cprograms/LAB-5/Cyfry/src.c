@@ -1,5 +1,12 @@
 #include <stdio.h>
 
+#define BIG_LETTERS_LVAL 65
+#define BIG_LETTERS_HVAL 90
+#define SMALL_LETTERS_LVAL 97
+#define SMALL_LETTERS_HVAL 122
+#define NUMBERS_LVAL 48
+#define NUMBERS_HVAL 57
+
 int main(){
 
     //The forst 4 variables hold how many letters are in a string provided by the used
@@ -18,11 +25,11 @@ int main(){
     {
         //printf("%d \n",temp);
         //Big letters
-        if(temp >= 65 && temp <=90) bigLetters++;
+        if(temp >= BIG_LETTERS_LVAL && temp <= BIG_LETTERS_HVAL) bigLetters++;
         //Small letters
-        else if(temp >= 97 && temp <=122) smallLetters++;
+        else if(temp >= SMALL_LETTERS_LVAL && temp <= SMALL_LETTERS_HVAL) smallLetters++;
         //Numbers
-        else if (temp >= 48 && temp <= 57) numbers++;
+        else if (temp >= NUMBERS_LVAL && temp <= NUMBERS_HVAL) numbers++;
         //Other characters
         else otherCharacters++;
         temp = getchar();

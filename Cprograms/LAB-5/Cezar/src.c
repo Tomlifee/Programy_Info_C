@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+#define BIG_LETTERS_LVAL 65
+#define BIG_LETTERS_HVAL 90
+#define SMALL_LETTERS_LVAL 97
+#define SMALL_LETTERS_HVAL 122
+#define ALPHABET_LENGHT 26
+
 int main(){
 
     //Key - is the shift in the alphabet, message holds the user string
@@ -11,7 +17,7 @@ int main(){
     scanf("%d", &key);
 
     //Error check
-    if(key < 0 || key > 25)
+    if(key < 0 || key > ALPHABET_LENGHT - 1)
     { 
         printf("\nBLAD - WARTOSC KLUCZA POZA DOZWOLONYM ZAKRESEM :<");
         return 1;
@@ -26,22 +32,22 @@ int main(){
     while(message != '\n')
     {
         //No change - misc char
-        if(message > 122) putchar(message);
+        if(message > SMALL_LETTERS_HVAL) putchar(message);
         //Small letters
-        else if(message > 96)
+        else if(message >= SMALL_LETTERS_LVAL)
         {
             //printf("\n%d",message);
-            if(message + key > 122) message = message - 26;
+            if(message + key > SMALL_LETTERS_HVAL) message = message - ALPHABET_LENGHT;
             //printf("\n%d",message);
             putchar(message + key);
         }
         //No change - misc char
-        else if(message > 90) putchar(message);
+        else if(message > BIG_LETTERS_HVAL) putchar(message);
         //Big letters
-        else if(message > 64)
+        else if(message >= BIG_LETTERS_LVAL)
         {
             //printf("\n%d",message);
-            if(message + key > 90) message = message - 26;
+            if(message + key > BIG_LETTERS_HVAL) message = message - ALPHABET_LENGHT;
             //printf("\n%d",message);
             putchar(message + key);
         }
