@@ -24,5 +24,3 @@ dojdź do folderu, gdzie znajduje się plik src.c
 > Wyjście:
 > Szyfr: Bydu eiwcy!1
 > Klucz: 20
-
-  
