@@ -17,53 +17,101 @@ dojdź do folderu, gdzie znajduje się plik main.c (komendy zatwierdza się klaw
 
 ## Przykłady danych:
 > Wejście:
+
 > 1
+
 > 10
+
 > 150
+
 > 2
+
 > 10
+
 > 50
+
 > 3
+
 > 10
+
 > 0
+
 > Wyjście: 
+
 > Wybierz opcje! (skopiuj z programu)
+
 > konto
+
 > poprawnie wpłacono
+
 > wybierz
+
 > konto
+
 > wypłacono
+
 > 3
+
 > konto
+
 > saldo:
+
 > wybierz
+
 > dziekujemy za korzystanie
 ---
 > Wejście:
+
 > 1
+
 > 10
+
 > 75
+
 > 1
+
 > 11
+
 > 25
+
 > 2
+
 > 12
+
 > 15
+
 > 3
+
 > 10
+
 > 0
+
 > Wyjście:
+
 > Wybierz
+
 > konto
+
 > wpłacono poprawnie
+
 > wybierz
+
 > konto
+
 > wpłacono
+
 > wybierz
+
 > konto
+
 > blad - za mala kwota
+
 > wybierz
+
 > konto
+
 > wyswietlono saldo
+
 > wybierz
+
 > dziekujemy za korzystanie

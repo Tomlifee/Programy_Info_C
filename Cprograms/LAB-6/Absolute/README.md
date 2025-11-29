@@ -16,31 +16,57 @@ dojdź do folderu, gdzie znajduje się plik main.c (komendy zatwierdza się klaw
 
 ## Przykłady danych:
 > Wejście:
+
 > 3
+
 > 1
+
 > 1
+
 > 1
+
 > Wyjście: 
+
 > Ile liczb chcesz wypisac (>=2):
+
 > Zostalo [3] liczb do wypisania 
+
 > Wypisz liczbe: 
+
 > Zostalo [2] liczb do wypisania
+
 > Wypisz liczbe: 
+
 > Zostalo [1] liczb do wypisania
+
 > Wypisz liczbe: 
+
 > Najwieksza absolutna roznica miedzy dwoma liczbami to [0]
 ---
 > Wejście:
+
 > 3
+
 > -4
+
 > 1
+
 > 3
+
 > Wyjście:
+
 > Ile liczb chcesz wypisac (>=2):
+
 > Zostalo [3] liczb do wypisania
+
 > Wypisz liczbe:
+
 > Zostalo [2] liczb do wypisania
+
 > Wypisz liczbe:
+
 > Zostalo [1] liczb do wypisania
+
 > Wypisz liczbe:
+
 > Najwieksza absolutna roznica miedzy dwoma liczbami to [5]

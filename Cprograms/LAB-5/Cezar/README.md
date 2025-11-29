@@ -16,11 +16,17 @@ dojdź do folderu, gdzie znajduje się plik src.c
 
 ## Przykłady danych:
 > Wejście: 2 AbcD; 
+
 > Wyjście: 
+
 > Szyfr:  CdeF 
+
 > Klucz: 2
 ---
 > Wejście: 20Heja kocie!1
+
 > Wyjście:
+
 > Szyfr: Bydu eiwcy!1
+
 > Klucz: 20

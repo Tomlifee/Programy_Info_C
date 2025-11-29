@@ -15,11 +15,18 @@ dojdź do folderu, gdzie znajduje się plik src.c
 
 ## Przykłady danych:
 > Wejście:Witaj, hejka!
+
 > Wyjście:
+
 >
+
 > Big letters - 1 Small letters - 9 Numbers - 0 Other characters - 3
 ---
+
 > Wejście:Czy 1 mniejsze jest od 12?
+
 > Wyjście:
+
 > 
+
 > Big letters - 1 Small letters - 16 Numbers - 3 Other characters - 6
