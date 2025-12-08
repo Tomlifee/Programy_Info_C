@@ -18,6 +18,7 @@ int main()
     return 0;
 }
 
+//Personal Srlen function
 int my_srlen(const char w[Length])
 {
     int i = 0;
