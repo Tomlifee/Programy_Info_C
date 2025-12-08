@@ -3,12 +3,12 @@
 #define MAX 100
 
 void PrintMenu();
-void Deposit(double saldo[MAX]);
-void Withdraw(double saldo[MAX]);
-void ShowBalanxe(const double saldo[MAX]);
+void Deposit(double saldo[]);
+void Withdraw(double saldo[]);
+void ShowBalance(const double saldo[]);
 
 int main(void) {
-    double saldo[100]; 
+    double saldo[MAX]; 
     // Inicjalizacja kont zerami
     for(int i = 0; i < MAX; i++) {
         saldo[i] = 0.0;
@@ -38,24 +38,15 @@ int main(void) {
                 break;
 
             case 1: 
-
                 Deposit(saldo);
-
                 break;
 
             case 2:
-            Withdraw(saldo);
+                Withdraw(saldo);
                 break;
 
             case 3:
-                // --- LOGIKA SALDA
-                printf("Podaj numer konta (0-99): ");
-                scanf("%d", &acc_id);
-                if (acc_id < 0 || acc_id >= 100) {
-                    printf("ERROR: Bledny numer konta!\n");
-                } else {
-                    printf("SHOW: Konto %d saldo = %.2f\n", acc_id, saldo[acc_id]);
-                }
+                ShowBalance(saldo);
                 break;
 
             default:
@@ -83,6 +74,8 @@ void Deposit(double saldo[])
 {
     int acc_id;
     double amount;
+    printf("Podaj numer konta (0-99): ");
+    scanf("%d", &acc_id);
     // Walidacja: czy numer konta mieści się w tablicy?
     if (acc_id < 0 || acc_id >= 100) {
         printf("ERROR: Bledny numer konta!\n");
@@ -123,5 +116,13 @@ void Withdraw(double saldo[])
 
 void ShowBalance(const double saldo[])
 {
-
+    int acc_id;
+    // --- LOGIKA SALDA
+    printf("Podaj numer konta (0-99): ");
+    scanf("%d", &acc_id);
+    if (acc_id < 0 || acc_id >= 100) {
+       printf("ERROR: Bledny numer konta!\n");
+    } else {
+        printf("SHOW: Konto %d saldo = %.2f\n", acc_id, saldo[acc_id]);
+    }
 }
