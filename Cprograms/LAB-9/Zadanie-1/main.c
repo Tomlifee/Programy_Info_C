@@ -10,7 +10,7 @@ int main()
 
     int lenght;
     //User input - array size
-    printf("Wypisz liczbe wierszy i kolumn: ");
+    printf("Wypisz wielkosz tablicy: ");
     scanf("%d", &lenght);
 
     //Verification
@@ -27,12 +27,26 @@ int main()
         scanf("%d", &array[i]);
     }
 
-    GetStats(array, lenght,)
+    GetStats(array, lenght, &min, &max, &avg);
+
+    printf("min - [%d], max - [%d], avg - [%f]", min, max, avg);
 
     return 0;
 }
 
 void GetStats(const int *tab, int n, int *min, int *max, double *avg)
 {
+    *min = *(tab);
+    *max = *(tab);
+    *avg = 0.0;
 
+    int i = 0;
+    for (; i < n; i++)
+    {
+        if(*(tab+i) > *max) *max = *(tab+i);
+        if(*(tab+i) < *min) *min = *(tab+i);
+        *avg += *(tab+i);
+    }
+    
+    *avg /= i;
 }
