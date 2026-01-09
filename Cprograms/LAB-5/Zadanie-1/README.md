@@ -1,4 +1,4 @@
-# Szyfr cezara
+# Cyfry
 Program do zliczania i kategoryzowania wpisanych znaków. Użytkownik wpisuje wiadomość, a program analizuje znajdujące się w niej znaki. Dzieli je na małe i duże litery, cyfry oraz inne znaki i wypisuje ile się ich znalazło w każdej z tych kategorii.
 
 ## Sposób kompilacji:
@@ -17,8 +17,6 @@ dojdź do folderu, gdzie znajduje się plik src.c
 > Wejście:Witaj, hejka!
 
 > Wyjście:
-
->
 
 > Big letters - 1 Small letters - 9 Numbers - 0 Other characters - 3
 ---
