@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+#pragma region Initialization
 #define Length 100
 
 typedef struct
@@ -10,14 +11,21 @@ typedef struct
     float price;
 } Product;
 
+void EmptyTheProduct(Product *);
+void EmptyTheArray(Product []);
 void AddProduct(Product []);
 void RemoveProduct(Product [], int);
 void SwapName(Product*, char []);
 void ShowName(char []);
+void FindProduct(Product [], int);
+void ReportAmount(Product [], int);
+void ReportMinMax(Product []);
+#pragma endregion
 
 int main()
 {
     Product items[Length];
+    EmptyTheArray(items);
     int choice = 0;
     while(choice < 10)
     {
@@ -31,7 +39,7 @@ int main()
             break;
             //Remove item
             case 2:
-            printf("\n Wpisz numer produkty do usuniecia: ");
+            printf("\nWpisz numer produktu do usuniecia: ");
             scanf("%d", &choice);
             while ((getchar()) != '\n');
 
@@ -47,15 +55,11 @@ int main()
             break;
             //Find product
             case 5:
-            printf("\n Wpisz numer produktu do znalezienia: ");
+            printf("\nWpisz numer produktu do znalezienia: ");
             scanf("%d", &choice);
             while ((getchar()) != '\n');
 
-            //He needs to find an item by its product_code not index
-            ShowName(items[choice].name);
-            printf("\nOpis: Kod - [%d], Ilosc - [%d], Cena - [%f]\n", 
-            items[choice].product_code, items[choice].quantatiy, items[choice].price);
-
+            FindProduct(items, choice);
             choice = 0;
             break;
             //Raport
@@ -71,6 +75,7 @@ int main()
     
     return 0 ;
 }
+
 //DONE
 void SwapName(Product *item, char newName[])
 {
@@ -167,19 +172,164 @@ void AddProduct(Product products[])
     //fflush(stdin);
     while ((getchar()) != '\n');
 }
-
+//DONE
 void RemoveProduct(Product products[], int index)
 {
     for (int i = 0; i < Length; i++)
     {
+        if(products[i].name[0] == '\0') //An empty product
+        {
+            continue;
+        }
         if(products[i].product_code == index)
         {
-            products[i].product_code = -1;
-            //SwapName(&products[i], '\0');
-            products[i].price = 0;
-            products[i].quantatiy = 0;
-            break;
+            EmptyTheProduct(&products[i]);
+            printf("\n[Hellooooooooo]\n");
+            return;
         }
     }
-    
+    printf("\nNie ma takiego produktu!\n");
+}
+//Finds product by its code; DONE
+void FindProduct(Product products[], int code)
+{
+    for(int i = 0; i < Length; i++)
+    {
+        if(products[i].name[0] == '\0') //An empty product
+        {
+            continue;
+        }
+        else
+        {
+            if(products[i].product_code == code) //Product found
+            {
+                ShowName(products[i].name);
+                printf("\nOpis: Kod - [%d], Ilosc - [%d], Cena - [%f]\n", 
+                products[i].product_code, products[i].quantatiy, products[i].price);
+                return;
+            }
+        }
+    }
+
+    printf("\nNie ma produktu o takim numerze!\n");
+}
+//Finds items which quantity is below given value; Done?; Is prepared to return an array
+void ReportAmount(Product products[], int amount)
+{
+    //Product items[Length];
+    //int j = 0; //Seperate iterator: prevents empty indexes
+    for(int i = 0; i < Length; i++)
+    {
+        if(products[i].name[0] == '\0') //An empty product
+        {
+            continue;
+        }
+        else
+        {
+            if(products[i].quantatiy < amount)
+            {
+                ShowName(products[i].name);
+                printf("\nOpis: Kod - [%d], Ilosc - [%d], Cena - [%f]\n", 
+                products[i].product_code, products[i].quantatiy, products[i].price);
+                return;
+
+                //items[j] = products[i];
+                //j++;
+            }
+        }
+    }
+}
+//Finds the most expensive and the cheapest items; Done?
+void ReportMinMax(Product products[])
+{
+    Product minItems[Length];
+    Product maxItems[Length]; //Both have such big size cuz technically all items can have the same price
+    EmptyTheArray(minItems);
+    EmptyTheArray(maxItems);
+    int j = 0; //Seperate iterator for Min
+    int k = 0; //Seperate iterator for Max: prevents empty indexes
+    minItems[0].price = 0.0f;
+    maxItems[0].price = 0.0f;
+    //Finds the products with lowest/highest price
+    for(int i = 0; i < Length; i++)
+    {
+        if(products[i].name[0] == '\0') //An empty product
+        {
+            continue;
+        }
+        else
+        {
+            //MIN
+            if(products[i].price = minItems[j].price) //Adds another item of the same price
+            {
+                j++;
+                SwapName(&minItems[j], products[i].name);
+                minItems[j].product_code = products[i].product_code;
+                minItems[j].quantatiy = products[i].quantatiy;
+                minItems[j].price = products[i].price;//Just to be sure
+                return;
+            }
+            else if(products[i].price < minItems[j].price) //Resets and adds a new item
+            {
+                j = 0;
+                EmptyTheArray(minItems);
+                SwapName(&minItems[j], products[i].name);
+                minItems[j].product_code = products[i].product_code;
+                minItems[j].quantatiy = products[i].quantatiy;
+                minItems[j].price = products[i].price;
+            }
+
+            //MAX
+            if(products[i].price = maxItems[k].price) //Adds another item of the same price
+            {
+                k++;
+                SwapName(&maxItems[k], products[i].name);
+                maxItems[k].product_code = products[i].product_code;
+                maxItems[k].quantatiy = products[i].quantatiy;
+                maxItems[k].price = products[i].price;//Just to be sure
+                return;
+            }
+            else if(products[i].price > maxItems[k].price) //Resets and adds a new item
+            {
+                k = 0;
+                EmptyTheArray(maxItems);
+                SwapName(&maxItems[k], products[i].name);
+                maxItems[k].product_code = products[i].product_code;
+                maxItems[k].quantatiy = products[i].quantatiy;
+                maxItems[k].price = products[i].price;
+            }
+        }
+    }
+
+    printf("\nNajtanszy produkt/y to:");
+    for(int i = 0; i < j + 1; i++)
+    {
+        ShowName(minItems[i].name);
+        printf("\nOpis: Kod - [%d], Ilosc - [%d], Cena - [%f]\n", 
+        minItems[i].product_code, minItems[i].quantatiy, minItems[i].price);
+    }
+
+    printf("\nNajdrozszy produkt/y to:");
+    for(int i = 0; i < k + 1; i++)
+    {
+        ShowName(maxItems[i].name);
+        printf("\nOpis: Kod - [%d], Ilosc - [%d], Cena - [%f]\n", 
+        maxItems[i].product_code, maxItems[i].quantatiy, maxItems[i].price);
+    }
+}
+//DONE
+void EmptyTheProduct(Product *item)
+{
+    item->name[0] = '\0';//Do not know why it has a *
+    item->price = 0;
+    item->product_code = -1;
+    item->quantatiy = 0;
+}
+//DONE
+void EmptyTheArray(Product products[])
+{
+    for (int i = 0; i < Length; i++)
+    {
+        EmptyTheProduct(&products[i]);
+    }
 }
